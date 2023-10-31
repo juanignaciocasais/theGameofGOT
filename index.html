@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css">
+  <title>Game of Thrones</title>
+</head>
+
+<body>
+
+  <div class="bloque">
+    <div class="bloque-izq">
+      <span id="puntos">0</span>
+      <span>Puntos</span>
+      <br>
+      <span id="mejor-marca">0</span>
+      <span>Mejor Marca</span>
+    </div>
+  
+    <div class="bloque-der">
+      <button id="llamar-api" onclick="llamarApi()" >Iniciar Juego</button>
+      <br>
+      <br>
+      <span id="nombre"></span>
+    </div>
+  </div>
+
+  <span id="resultado"></span>
+ 
+  <div class="opciones">
+    <ul>
+      <label for="opcion">Casa Lannister</label>
+      <input type="radio" name="opcion" value="House Lannister of Casterly Rock" />
+      <label for="opcion">Casa Stark</label>
+      <input type="radio" name="opcion" value="House Stark of Winterfell" />
+      <label for="opcion">Casa Baratheon</label>
+      <input type="radio" name="opcion" value="House Baratheon of Dragonstone" />
+      <label for="opcion">Casa Targaryen</label>
+      <input type="radio" name="opcion" value="House Targaryen of King's Landing" />
+      <label for="opcion">Casa Bolton</label>
+      <input type="radio" name="opcion" value="House Bolton of the Dreadfort" />
+      <label for="opcion">Casa Greyjoy</label>
+      <input type="radio" name="opcion" value="House Greyjoy of Pyke" />
+      <label for="opcion">Casa Tarly</label>
+      <input type="radio" name="opcion" value="House Tarly of Horn Hill" />
+      <br>
+      <label for="opcion">Casa Baelish</label>
+      <input type="radio" name="opcion" value="House Baelish of Harrenhal" />
+      <label for="opcion">Casa Tyrell</label>
+      <input type="radio" name="opcion" value="House Tyrell of Highgarden" />
+      <br>
+      <label for="opcion">Sin Casa</label>
+      <input type="radio" name="opcion" value="sin casa" />
+    </ul>
+
+    <button onclick="enviarRespuesta()" >Enviar Respuesta</button>
+
+  </div>
+
+  <script src="index.js"></script>
+
+</body>
+
+</html>

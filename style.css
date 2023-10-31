@@ -1,0 +1,29 @@
+body {
+    text-align: center;
+    background-image: url('https://www.almuerzodenegocios.com/wp-content/uploads/2013/03/Game-of-Thrones-Wallpaper.jpg');
+    color: white;
+}
+
+.opciones {
+    width: 200px;
+    line-height: 2.5;
+    text-align: left;
+}
+
+.bloque {
+    display: flex;
+    align-content: space-between;
+    justify-content: space-around;
+    width: 63rem;
+}
+
+.bloque-izq {
+    line-height: 1.5;
+    text-align: left;
+}
+
+#resultado {
+    position: absolute;
+    margin-top: 180px;
+    font-size: 4rem;
+}
