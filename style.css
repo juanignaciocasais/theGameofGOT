@@ -1,9 +1,35 @@
 body {
     text-align: center;
-    background-image: url('https://www.almuerzodenegocios.com/wp-content/uploads/2013/03/Game-of-Thrones-Wallpaper.jpg');
+    background-image: url('https://i.imgur.com/WXKz0M1.jpeg');
+    background-size: 100%;
     color: white;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
 }
-
+h1{
+    font-family: 'Castoro Titling', cursive;
+    font-size: 70px;
+    text-shadow: #343434 1px 0 10px;
+    color: white;
+    padding: 1%;
+}
+button{
+    color: #1b1b1b;
+    font-family: 'Castoro Titling', cursive;
+    font-weight: bold;
+    font-size: 17px;
+    outline: 1px solid #343434;
+    border: none;
+    border-radius: 5px;
+    width: 99%;
+    cursor: pointer;
+}
+button:hover{
+    transition: all 0.5s ease-in-out;
+    background-color: #343434;
+    letter-spacing: 1px;
+    color: azure;
+    outline-color: azure;
+}
 .opciones {
     width: 200px;
     line-height: 2.5;
@@ -12,9 +38,12 @@ body {
 
 .bloque {
     display: flex;
-    align-content: space-between;
     justify-content: space-around;
-    width: 63rem;
+    padding: 0.5%;
+    background-color: #0000008f;
+    /*align-content: space-between;
+    justify-content: space-around;
+    width: 63rem;*/
 }
 
 .bloque-izq {

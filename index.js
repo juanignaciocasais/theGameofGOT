@@ -1,5 +1,7 @@
 
 let casaPersonaje;
+let intervalo;
+let seg = document.getElementById("tiempo").innerHTML;
 
 function borrarMensaje() {
     document.getElementById("resultado").innerText = "";
@@ -27,12 +29,21 @@ function llamarApi() {
             } else {
                 casaPersonaje = data.character.house.name;
             }
+            intervalo = setInterval(mostrar, 1000);
         })
         .catch(error => {
             // Handle any errors here 
             console.error(error); // Example: Logging the error to the console 
         });
 
+}
+function mostrar(){
+    if(seg>=0){
+        document.getElementById("tiempo").innerHTML = seg;
+        seg--;
+    }else{
+        clearInterval(intervalo)
+    }
 }
 
 function unselect() {
