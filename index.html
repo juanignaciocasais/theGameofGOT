@@ -4,11 +4,14 @@
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&display=swap" rel="stylesheet">
   <title>Game of Thrones</title>
 </head>
 
 <body>
-
+  <h1>
+    The Game of GOT
+  </h1>
   <div class="bloque">
     <div class="bloque-izq">
       <span id="puntos">0</span>
@@ -17,12 +20,16 @@
       <span id="mejor-marca">0</span>
       <span>Mejor Marca</span>
     </div>
-  
+
     <div class="bloque-der">
-      <button id="llamar-api" onclick="llamarApi()" >Iniciar Juego</button>
+      <button id="llamar-api" onclick="empezarJuego()" >Iniciar Juego</button>
       <br>
       <br>
       <span id="nombre"></span>
+    </div>
+
+    <div class="bloque-tiempo">
+      <span id="tiempo">59</span>
     </div>
   </div>
 
@@ -32,23 +39,31 @@
     <ul>
       <label for="opcion">Casa Lannister</label>
       <input type="radio" name="opcion" value="House Lannister of Casterly Rock" />
+      <br>
       <label for="opcion">Casa Stark</label>
       <input type="radio" name="opcion" value="House Stark of Winterfell" />
+      <br>
       <label for="opcion">Casa Baratheon</label>
       <input type="radio" name="opcion" value="House Baratheon of Dragonstone" />
+      <br>
       <label for="opcion">Casa Targaryen</label>
       <input type="radio" name="opcion" value="House Targaryen of King's Landing" />
+      <br>
       <label for="opcion">Casa Bolton</label>
       <input type="radio" name="opcion" value="House Bolton of the Dreadfort" />
+      <br>
       <label for="opcion">Casa Greyjoy</label>
       <input type="radio" name="opcion" value="House Greyjoy of Pyke" />
+      <br>
       <label for="opcion">Casa Tarly</label>
       <input type="radio" name="opcion" value="House Tarly of Horn Hill" />
       <br>
       <label for="opcion">Casa Baelish</label>
       <input type="radio" name="opcion" value="House Baelish of Harrenhal" />
+      <br>
       <label for="opcion">Casa Tyrell</label>
       <input type="radio" name="opcion" value="House Tyrell of Highgarden" />
+      <br>
       <label for="opcion">Casa Tarth</label>
       <input type="radio" name="opcion" value="House Tarth of Evenfall Hall" />
       <br>

@@ -1,8 +1,18 @@
 
 let casaPersonaje;
+let intervalo;
+let sigueJuego;
+let seg;
 
 function borrarMensaje() {
     document.getElementById("resultado").innerText = "";
+}
+function empezarJuego(){
+    llamarApi()
+    sigueJuego = true;
+    seg = 59
+    document.getElementById("tiempo").innerText = seg;
+    intervalo = setInterval(mostrar, 1000);
 }
 
 function llamarApi() {
@@ -34,6 +44,14 @@ function llamarApi() {
         });
 
 }
+function mostrar(){
+    if(seg>=0&&sigueJuego){
+        document.getElementById("tiempo").innerHTML = seg;
+        seg--;
+    }else{
+        clearInterval(intervalo)
+    }
+}
 
 function unselect() {
     document.querySelectorAll('[name=opcion]').forEach((x) => x.checked = false);
@@ -62,10 +80,12 @@ function enviarRespuesta() {
         document.getElementById("puntos").innerText = puntos + 100;
         document.getElementById("resultado").innerText = "Adivinaste!!!";
         llamarApi();
+        sigueJuego = true;
     } else {
         document.getElementById("resultado").innerText = "Perdiste";
         document.getElementById("llamar-api").removeAttribute("disabled");
         grabarMejorMarca();
+        sigueJuego = false;
     }
     
     setTimeout(borrarMensaje, 2000);
