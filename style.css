@@ -5,13 +5,16 @@ body {
     color: white;
     font-family: Calibri, 'Trebuchet MS', sans-serif;
 }
+
 h1{
     font-family: 'Castoro Titling', cursive;
     font-size: 70px;
     text-shadow: #343434 1px 0 10px;
     color: white;
     padding: 1%;
+    margin:auto;
 }
+
 button{
     color: #1b1b1b;
     font-family: 'Castoro Titling', cursive;
@@ -30,11 +33,17 @@ button:hover{
     color: azure;
     outline-color: azure;
 }
+
 .opciones {
-    width: 200px;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+ 
+    /*width: 200px;
     line-height: 2.5;
-    text-align: left;
+    text-align: left;*/
 }
+
 
 .bloque {
     display: flex;
@@ -52,7 +61,23 @@ button:hover{
 }
 
 #resultado {
-    position: absolute;
     margin-top: 180px;
     font-size: 4rem;
+    background-color:#1b1b1b;
+   
+}
+
+#nombre {
+    font-size: 25px;
+}
+
+.logo {
+    width:48px;
+    height:48px;   
+}
+
+.row {
+    display:flex;
+    padding: 1%;
+    justify-content: space-evenly;
 }

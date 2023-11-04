@@ -87,6 +87,8 @@ function enviarRespuesta() {
         grabarMejorMarca();
         sigueJuego = false;
     }
+
+
     
     setTimeout(borrarMensaje, 2000);
 
