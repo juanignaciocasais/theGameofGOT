@@ -22,9 +22,10 @@
     </div>
 
     <div class="bloque-der">
-      <button id="llamar-api" onclick="empezarJuego()" >Iniciar Juego</button>
+      <button id="iniciar-juego" onclick="empezarJuego()" >Iniciar Juego</button>
       <br>
       <br>
+      <span id="spinner" class="spinner"></span>
       <span id="nombre"></span>
     </div>
 
@@ -108,7 +109,7 @@
   </div> <!--opciones-->
 
   <div>
-    <button onclick="enviarRespuesta()" >Enviar Respuesta</button>
+    <button id="enviar-respuesta" onclick="enviarRespuesta()" >Enviar Respuesta</button>
     <span id="resultado"></span>
   </div>
 
