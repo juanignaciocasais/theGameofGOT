@@ -1,21 +1,22 @@
 body {
     text-align: center;
-    background-image: url('https://i.imgur.com/WXKz0M1.jpeg');
+    /*background-color: black;*/
+    background-image:url('https://i.imgur.com/WXKz0M1.jpeg');
     background-size: 100%;
     color: white;
     font-family: Calibri, 'Trebuchet MS', sans-serif;
 }
 
-h1{
+h1 {
     font-family: 'Castoro Titling', cursive;
     font-size: 70px;
     text-shadow: #343434 1px 0 10px;
     color: white;
     padding: 1%;
-    margin:auto;
+    margin: auto;
 }
 
-button{
+button {
     color: #1b1b1b;
     font-family: 'Castoro Titling', cursive;
     font-weight: bold;
@@ -26,7 +27,8 @@ button{
     width: 99%;
     cursor: pointer;
 }
-button:hover{
+
+button:hover {
     transition: all 0.5s ease-in-out;
     background-color: #343434;
     letter-spacing: 1px;
@@ -35,10 +37,10 @@ button:hover{
 }
 
 .opciones {
-    display:flex;
+    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
- 
+
     /*width: 200px;
     line-height: 2.5;
     text-align: left;*/
@@ -63,8 +65,8 @@ button:hover{
 #resultado {
     margin-top: 180px;
     font-size: 4rem;
-    background-color:#1b1b1b;
-   
+    background-color: #1b1b1b;
+
 }
 
 #nombre {
@@ -72,12 +74,52 @@ button:hover{
 }
 
 .logo {
-    width:48px;
-    height:48px;   
+    width: 48px;
+    height: 48px;
 }
 
 .row {
-    display:flex;
+    display: flex;
     padding: 1%;
     justify-content: space-evenly;
+}
+
+.spinner,
+.spinner:after {
+    width: 64px;
+    height: 64px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -32px;
+    margin-left: -32px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+#spinner {
+    visibility: hidden;
+}
+
+.spinner {
+    background-color: transparent;
+    border-top: 10px solid rgb(66, 139, 202);
+    border-right: 10px solid rgb(66, 139, 202);
+    border-bottom: 10px solid rgb(66, 139, 202);
+    border-left: 10px solid rgba(66, 139, 202, .2);
+    transform: translateZ(0);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: .8s;
+    animation-name: spinner-loading
+}
+
+@keyframes spinner-loading {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(1turn)
+    }
 }
