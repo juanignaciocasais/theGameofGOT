@@ -65,7 +65,7 @@ function imprimirPersonaje(personaje) {
 }
 
 function mostrar() {
-    if (seg >= 0 && sigueJuego) {
+    if (seg > 0 && sigueJuego) {
         seg--;
         document.getElementById("tiempo").innerHTML = seg;
     } else {
