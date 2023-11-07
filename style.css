@@ -1,6 +1,5 @@
 body {
     text-align: center;
-    /*background-color: black;*/
     background-image:url('https://i.imgur.com/WXKz0M1.jpeg');
     background-size: 100%;
     color: white;
@@ -40,10 +39,6 @@ button:hover {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-
-    /*width: 200px;
-    line-height: 2.5;
-    text-align: left;*/
 }
 
 
@@ -52,9 +47,6 @@ button:hover {
     justify-content: space-around;
     padding: 0.5%;
     background-color: #0000008f;
-    /*align-content: space-between;
-    justify-content: space-around;
-    width: 63rem;*/
 }
 
 .bloque-izq {
@@ -71,6 +63,7 @@ button:hover {
 
 #nombre {
     font-size: 25px;
+    margin: 1px;
 }
 
 .logo {
@@ -82,44 +75,4 @@ button:hover {
     display: flex;
     padding: 1%;
     justify-content: space-evenly;
-}
-
-.spinner,
-.spinner:after {
-    width: 64px;
-    height: 64px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -32px;
-    margin-left: -32px;
-    border-radius: 50%;
-    z-index: 2;
-}
-
-#spinner {
-    visibility: hidden;
-}
-
-.spinner {
-    background-color: transparent;
-    border-top: 10px solid rgb(66, 139, 202);
-    border-right: 10px solid rgb(66, 139, 202);
-    border-bottom: 10px solid rgb(66, 139, 202);
-    border-left: 10px solid rgba(66, 139, 202, .2);
-    transform: translateZ(0);
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-duration: .8s;
-    animation-name: spinner-loading
-}
-
-@keyframes spinner-loading {
-    0% {
-        transform: rotate(0deg)
-    }
-
-    to {
-        transform: rotate(1turn)
-    }
 }
