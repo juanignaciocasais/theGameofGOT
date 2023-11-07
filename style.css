@@ -76,3 +76,7 @@ button:hover {
     padding: 1%;
     justify-content: space-evenly;
 }
+
+#tiempo {
+    font-size: 3rem;
+}
