@@ -53,7 +53,7 @@ function empezarJuego() {
 
 function cicloJuego() {
 
-    let personaje = obtenerPersonajeRandom()
+    let personaje = obtenerPersonajeRandom();
     personajes = eliminarPersonajeDelArray(personaje);
 
     casaPersonaje = personaje.casa;
@@ -66,8 +66,8 @@ function imprimirPersonaje(personaje) {
 
 function mostrar() {
     if (seg >= 0 && sigueJuego) {
-        document.getElementById("tiempo").innerHTML = seg;
         seg--;
+        document.getElementById("tiempo").innerHTML = seg;
     } else {
         clearInterval(intervalo)
         detenerJuego();
