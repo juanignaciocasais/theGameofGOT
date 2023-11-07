@@ -55,7 +55,7 @@ function cicloJuego() {
 
     let personaje = obtenerPersonajeRandom()
     personajes = eliminarPersonajeDelArray(personaje);
-
+    
     casaPersonaje = personaje.casa;
     imprimirPersonaje(personaje);
 }
@@ -70,6 +70,12 @@ function mostrar() {
         seg--;
     } else {
         clearInterval(intervalo)
+        detenerJuego();
+        if(seg<=0){
+            document.getElementById("resultado").innerText = "Se acabo el tiempo, volvé a jugar!";
+            document.getElementById("nombre").innerText = "";
+            setTimeout(borrarMensaje, 2000);
+        }
     }
 }
 
@@ -103,7 +109,9 @@ function enviarRespuesta() {
         sigueJuego = true;
         setTimeout(borrarMensaje, 2000);
     } else {
+        document.getElementById("resultado").innerText = "Perdiste, volvé a jugar!";
         detenerJuego();
+        setTimeout(borrarMensaje, 2000);
     }
 }
 
@@ -118,7 +126,6 @@ function eliminarPersonajeDelArray(personaje) {
 }
 
 function detenerJuego() {
-    document.getElementById("resultado").innerText = "Perdiste, volvé a jugar!";
     document.getElementById("iniciar-juego").removeAttribute("disabled");
     document.getElementById("enviar-respuesta").setAttribute("disabled", "");
     grabarMejorMarca();
