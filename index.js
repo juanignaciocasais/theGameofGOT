@@ -6,81 +6,83 @@ let seg;
 let personajes = [];
 let personaje;
 
-function borrarMensaje() {
-    document.getElementById("resultado").innerText = "";
-}
+obtenerPersonajes();
 
-function desactivarSpinner() {
-    document.getElementById("spinner").setAttribute("visibility", "hidden");
-}
+function obtenerPersonajes() {
 
-function empezarJuego(){
-    personajes = [];
-    llamarApi()
-    sigueJuego = true;
-    seg = 59
-    document.getElementById("tiempo").innerText = seg;
-    intervalo = setInterval(mostrar, 1000);
-}
-
-
-function llamarApi() {
-    document.getElementById("spinner").setAttribute("visibility", "unset");
-    setTimeout(desactivarSpinner, 1000);
-    document.getElementById("iniciar-juego").setAttribute("disabled", "");
-    document.getElementById("enviar-respuesta").removeAttribute("disabled");
-    document.getElementById("nombre").setAttribute("display", "none");
-    document.getElementById("nombre").innerText = "";
-    fetch('https://api.gameofthronesquotes.xyz/v1/random')
+    fetch('https://api.gameofthronesquotes.xyz/v1/characters')
         .then(response => {
             if (response.ok) {
-                return response.json(); // Parse the response data as JSON 
+                return response.json();
             } else {
                 throw new Error('API request failed');
             }
         })
         .then(data => {
-            // Process the response data here 
 
-            personaje = data;
-
-            personaje = validarPersonaje(personaje);
-
-            let name = data.character.slug;
-            document.getElementById("nombre").innerText = name.charAt(0).toUpperCase() + name.slice(1);
-            
-            if (personaje.character.house.name == null) {
-                casaPersonaje = "sin casa";
-            } else {
-                casaPersonaje = personaje.character.house.name;
-            }
+            data.forEach((data) => {
+                
+                if (data.slug == 'baelish') {
+                    personajes.push({nombre: 'petyr', casa: data.house.name})
+                } else if (data.house == null) {
+                    personajes.push({nombre: data.slug, casa: 'sin casa'})
+                } else {
+                    personajes.push({nombre: data.slug, casa: data.house.name})
+                }   
+            });
         })
         .catch(error => {
-            // Handle any errors here 
-            console.error(error); // Example: Logging the error to the console 
+            console.error(error);
         });
-        document.getElementById("nombre").setAttribute("display", "block");
 }
 
-function mostrar(){
-    if(seg >= 0 && sigueJuego){
+function borrarMensaje() {
+    document.getElementById("resultado").innerText = "";
+}
+
+function empezarJuego() {
+    document.getElementById("iniciar-juego").setAttribute("disabled", "");
+    document.getElementById("enviar-respuesta").removeAttribute("disabled");
+
+    sigueJuego = true;
+    seg = 59
+    document.getElementById("tiempo").innerText = seg;
+    intervalo = setInterval(mostrar, 1000);
+    cicloJuego();
+}
+
+function cicloJuego() {
+
+    let personaje = obtenerPersonajeRandom()
+    personajes = eliminarPersonajeDelArray(personaje);
+
+    casaPersonaje = personaje.casa;
+    imprimirPersonaje(personaje);
+}
+
+function imprimirPersonaje(personaje) {
+    document.getElementById("nombre").innerText = personaje.nombre.charAt(0).toUpperCase() + personaje.nombre.slice(1);
+}
+
+function mostrar() {
+    if (seg >= 0 && sigueJuego) {
         document.getElementById("tiempo").innerHTML = seg;
         seg--;
-    }else{
+    } else {
         clearInterval(intervalo)
     }
 }
 
-function unselect() {
+function deseleccionar() {
     document.querySelectorAll('[name=opcion]').forEach((x) => x.checked = false);
 }
 
-function grabarMejorMarca(){
+function grabarMejorMarca() {
     let puntos = parseInt(document.getElementById("puntos").innerText);
 
-    let mejorMArca = parseInt(document.getElementById("mejor-marca").innerText);
+    let mejorMarca = parseInt(document.getElementById("mejor-marca").innerText);
 
-    if(puntos > mejorMArca) {
+    if (puntos > mejorMarca) {
         document.getElementById("mejor-marca").innerText = puntos;
     }
 
@@ -92,12 +94,12 @@ function enviarRespuesta() {
     let puntos = parseInt(document.getElementById("puntos").innerText);
     let respuesta = document.querySelector('input[name="opcion"]:checked').value;
 
-    unselect();
+    deseleccionar();
 
     if (casaPersonaje === respuesta) {
         document.getElementById("puntos").innerText = puntos + 100;
         document.getElementById("resultado").innerText = "Adivinaste!";
-        llamarApi();
+        cicloJuego();
         sigueJuego = true;
         setTimeout(borrarMensaje, 2000);
     } else {
@@ -105,24 +107,23 @@ function enviarRespuesta() {
     }
 }
 
-function validarPersonaje(personaje) {
-    console.log(personajes);
-    if (!personajes.includes(personaje.character.slug)) {
-        console.log("OK");
-        personajes.push(personaje.character.slug)
-    } else {
-        console.log("REPETIDOOO");
-        llamarApi();
-    }
-
-    return personaje;
+function obtenerPersonajeRandom() {
+   
+    return personajes[Math.floor(Math.random()*personajes.length)];
 }
 
-function detenerJuego(){
+function eliminarPersonajeDelArray(personaje) {
+    
+    return personajes.filter(p => p != personaje);
+}
+
+function detenerJuego() {
     document.getElementById("resultado").innerText = "Perdiste, volvé a jugar!";
     document.getElementById("iniciar-juego").removeAttribute("disabled");
     document.getElementById("enviar-respuesta").setAttribute("disabled", "");
     grabarMejorMarca();
 
     sigueJuego = false;
+    personajes = [];
+    obtenerPersonajes();
 }
