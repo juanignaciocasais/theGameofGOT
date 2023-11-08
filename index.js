@@ -42,7 +42,7 @@ function borrarMensaje() {
 
 function empezarJuego() {
     document.getElementById("iniciar-juego").setAttribute("disabled", "");
-    document.getElementById("enviar-respuesta").removeAttribute("disabled");
+   /* document.getElementById("enviar-respuesta").removeAttribute("disabled"); */
 
     sigueJuego = true;
     seg = 59;
@@ -95,10 +95,11 @@ function grabarMejorMarca() {
     document.getElementById("puntos").innerText = 0;
 }
 
-function enviarRespuesta() {
+function enviarRespuesta(eleccion) {
 
     let puntos = parseInt(document.getElementById("puntos").innerText);
-    let respuesta = document.querySelector('input[name="opcion"]:checked').value;
+    let respuesta = eleccion;
+    /*let respuesta = document.querySelector('input[name="opcion"]:checked').value;*/
 
     deseleccionar();
 
@@ -127,7 +128,7 @@ function eliminarPersonajeDelArray(personaje) {
 
 function detenerJuego() {
     document.getElementById("iniciar-juego").removeAttribute("disabled");
-    document.getElementById("enviar-respuesta").setAttribute("disabled", "");
+    /*document.getElementById("enviar-respuesta").setAttribute("disabled", "");*/
     grabarMejorMarca();
 
     sigueJuego = false;

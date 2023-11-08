@@ -15,7 +15,7 @@ h1 {
     margin: auto;
 }
 
-button {
+.mainButton {
     color: #1b1b1b;
     font-family: 'Castoro Titling', cursive;
     font-weight: bold;
@@ -27,7 +27,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.mainButton:hover {
     transition: all 0.5s ease-in-out;
     background-color: #343434;
     letter-spacing: 1px;
@@ -74,8 +74,28 @@ button:hover {
 .row {
     display: flex;
     padding: 1%;
-    justify-content: space-evenly;
+    justify-content: center;
 }
+
+.item {
+    outline:none;
+    margin-inline: 50px;
+}
+
+.eleccion {
+    background:none;
+    color:white;
+    outline:none;
+    border: none;
+    border-radius: 5px;
+    width: 99%;
+    cursor: pointer;
+}
+
+.eleccion:hover {
+    transform: scale(1.2);
+    transition: all 0.5s ease-in-out ;
+} 
 
 #tiempo {
     font-size: 3rem;
