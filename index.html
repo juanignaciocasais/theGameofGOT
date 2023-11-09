@@ -1,120 +1,138 @@
 <!doctype html>
 <html>
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&display=swap" rel="stylesheet">
-  <title>Game of Thrones</title>
-</head>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="style.css">
+		<link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&display=swap" rel="stylesheet">
+		<title>Game of Thrones</title>
+	</head>
 
-<body>
-  <h1>
-    The Game of GOT
-  </h1>
-  <div class="bloque">
-    <div class="bloque-izq">
-      <span id="puntos">0</span>
-      <span>Puntos</span>
-      <br>
-      <span id="mejor-marca">0</span>
-      <span>Mejor Marca</span>
-    </div>
+	<body>
+		<h1>
+			The Game of GOT
+		</h1>
+		<div class="bloque">
+			<div class="bloque-izq">
+				<span id="puntos">0</span>
+				<span>Puntos</span>
+				<br>
+				<span id="mejor-marca">0</span>
+				<span>Mejor Marca</span>
+			</div>
 
-    <div class="bloque-der">
-      <button id="iniciar-juego" onclick="empezarJuego()" >Iniciar Juego</button>
-      <br>
-      <br>
-      <span id="spinner" class="spinner"></span>
-      <span id="nombre"></span>
-    </div>
+			<div class="bloque-der">
+				<button class="mainButton" id="iniciar-juego" onclick="empezarJuego()">Iniciar Juego</button>
+				<br>
+				<br>
+				<span id="spinner" class="spinner"></span>
+				<span id="nombre"></span>
+			</div>
 
-    <div class="bloque-tiempo">
-      <span id="tiempo">60</span>
-    </div>
-  </div>
+			<div class="bloque-tiempo">
+				<span id="tiempo">60</span>
+			</div>
+		</div>
 
- 
-  <div class="opciones">
-    
-    <div class="row">
-      <div class="item">
-        <img class="logo" src="images/House_Lannister.webp"  alt="Lannister" />
-        <label for="opcion">Casa Lannister</label>
-        <input type="radio" name="opcion" value="House Lannister of Casterly Rock" />
-      </div> 
-      <div class="item">
-        <img class="logo" src="images/House-Stark-Main-Shield.webp"  alt="Stark" />
-        <label for="opcion">Casa Stark</label>
-        <input type="radio" name="opcion" value="House Stark of Winterfell" />
-      </div>
-      <div class="item">
-        <img class="logo" src="images/Sigil_House_Baratheon_01.webp"  alt="Baratheon" /> 
-        <label for="opcion">Casa Baratheon</label>
-        <input type="radio" name="opcion" value="House Baratheon of Dragonstone" />
-      </div>  
-    </div>
 
-    <div class="row">
-      
-      <div class="item">
-        <img class="logo" src="images/House_Targaryen.webp"  alt="Targareyn" />     
-        <label for="opcion">Casa Targaryen</label>
-        <input type="radio" name="opcion" value="House Targaryen of King's Landing" />
-      </div>  
-      <div class="item">
-        <img class="logo" src="images/House_Bolton_shield.webp"  alt="Bolton" />     
-        <label for="opcion">Casa Bolton</label>
-        <input type="radio" name="opcion" value="House Bolton of the Dreadfort" />
-      </div>   
-       <div class="item">
-        <img class="logo" src="images/House_Greyjoy_Sigil2.webp"  alt="Greyjoy" />    
-        <label for="opcion">Casa Greyjoy</label>
-        <input type="radio" name="opcion" value="House Greyjoy of Pyke" />    
-      </div>  
-      <div class="item">
-        <img class="logo" src="images/House_Tarly.webp"  alt="Tarly" />     
-        <label for="opcion">Casa Tarly</label>
-        <input type="radio" name="opcion" value="House Tarly of Horn Hill" /> 
-      </div>
-    </div>
+		<div class="opciones">
 
-    <div class="row">
-      <div class="item">
-        <img class="logo" src="images/House_Baelish.webp"  alt="Baelish" />
-        <input type="radio" name="opcion" value="House Baelish of Harrenhal" />
-        <label for="opcion">Casa Baelish</label>
-      </div>
+			<div class="row">
+				<div class="item">
+					<button class="eleccion" onclick="enviarRespuesta('House Baratheon of Dragonstone')">
+						<img class="logo" src="images/Sigil_House_Baratheon_01.webp" alt="Baratheon" /> <br>
+						<label>Casa Baratheon</label>
+					</button>
+				</div>
 
-      <div class="item">
-        <img class="logo" src="images/Tyrell_Coat_of_Arms.webp"  alt="Tyrell" />     
-        <label for="opcion">Casa Tyrell</label>
-        <input type="radio" name="opcion" value="House Tyrell of Highgarden" />
-      </div>
+				<div class="item">
+					<button class="eleccion" onclick="enviarRespuesta('House Bolton of the Dreadfort')">
+						<img class="logo" src="images/House_Bolton_shield.webp" alt="Bolton" /> <br>
+						<label>Casa Bolton</label>
+					</button>
+				</div>
 
-      <div class="item">
-        <img class="logo" src="images/Casa_Tarth.webp"  alt="Tarth" />      
-        <label for="opcion">Casa Tarth</label>
-        <input type="radio" name="opcion" value="House Tarth of Evenfall Hall" />
-      </div>
-        
-      <div class="item"> 
-        <img class="logo" src="images/blank.png"  alt="Sin Casa" />      
-        <label for="opcion">Sin Casa</label>
-        <input type="radio" name="opcion" value="sin casa" />
-      </div>
+				<div class="item">
+					<button class="eleccion" onclick="enviarRespuesta('House Greyjoy of Pyke')">
+						<img class="logo" src="images/House_Greyjoy_Sigil2.webp" alt="Greyjoy" /> <br>
+						<label for="opcion">Casa Greyjoy</label>
+					</button>
+				</div>
 
-    </div> 
+				<div class="item">
+					<button class="eleccion" onclick="enviarRespuesta('House Tarly of Horn Hill')">
+						<img class="logo" src="images/House_Tarly.webp" alt="Tarly" /> <br>
+						<label>Casa Tarly</label>
+				</div>
 
-  </div> <!--opciones-->
 
-  <div>
-    <button id="enviar-respuesta" onclick="enviarRespuesta()" >Enviar Respuesta</button>
-    <span id="resultado"></span>
-  </div>
+			</div> <!-- termina primer row -->
 
-  <script src="index.js"></script>
+			<div class="row">
 
-</body>
+				<div class="item">
+					<button class="eleccion" onclick="enviarRespuesta('House Targaryen of King\'\s Landing')">
+						<img class="logo" src="images/House_Targaryen.webp" alt="Targareyn" /> <br>
+						<label>Casa Targaryen</label>
+					</button>
+				</div>
+
+				<div class="item">
+					<button class="eleccion" onclick="enviarRespuesta('House Lannister of Casterly Rock')">
+						<img class="logo" src="images/House_Lannister.webp" alt="Lannister" /> <br>
+						<label>Casa Lannister</label>
+					</button>
+				</div>
+
+				<div class="item">
+					<button class="eleccion" onclick="enviarRespuesta('House Stark of Winterfell')">
+						<img class="logo" src="images/House-Stark-Main-Shield.webp" alt="Stark" /> <br>
+						<label>Casa Stark</label>
+					</button>
+				</div>
+
+			</div> <!--fin segundo row-->
+
+			<div class="row">
+
+				<div class="item">
+					<button class="eleccion" onclick="enviarRespuesta('House Baelish of Harrenhal')">
+						<img class="logo" src="images/House_Baelish.webp" alt="Baelish" /> <br>
+						<label>Casa Baelish</label>
+					</button>
+				</div>
+
+				<div class="item">
+					<button class="eleccion" onclick="enviarRespuesta('House Tyrell of Highgarden')">
+						<img class="logo" src="images/Tyrell_Coat_of_Arms.webp" alt="Tyrell" /> <br>
+						<label>Casa Tyrell</label>
+					</button>
+				</div>
+
+				<div class="item">
+					<button class="eleccion" onclick="enviarRespuesta('House Tarth of Evenfall Hall')">
+						<img class="logo" src="images/Casa_Tarth.webp" alt="Tarth" /> <br>
+						<label>Casa Tarth</label>
+					</button>
+				</div>
+
+				<div class="item">
+					<button class="eleccion" onclick="enviarRespuesta('sin casa')">
+						<img class="logo" src="images/blank.png" alt="Sin Casa" /> <br>
+						<label>Sin Casa</label>
+					</button>
+				</div>
+
+			</div> <!-- termina tercer row-->
+
+		</div> <!--opciones-->
+
+		<div class="resultado">
+			<span id="resultado"></span>
+		</div>
+
+		<script src="index.js"></script>
+
+	</body>
 
 </html>
